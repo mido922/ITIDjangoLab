@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django Test</title>
+    <link rel="stylesheet" href="{% static 'styles/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.css' %}">
+  </head>
+  <body>
+    <div class="container wholeBody">
+        <div class="container" id="Logo">
+            Scamazon.</div>
+        <div class="container" id="navbar">
+            <div class="row border">
+                <div class="col-sm-2 border">
+                    <a href="/">List of Products</a>
+                </div>
+                <div class="col-sm-2 border">
+                    <a href="/category/">List of Products including Categories.</a>
+                </div>
+                <div class="col-sm-6 border"></div>
+                <div class="col-sm-2 border">
+                    <a href="/aboutUs/">About Us</a>
+                </div>
+            </div>
+        </div>
+
+        {% block aboutUs %}{% endblock aboutUs %}
+
+        {% block productList %}
+        {% endblock productList %}
+
+    </div>
+    </body>
+</html>
+  

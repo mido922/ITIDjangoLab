@@ -1,0 +1,37 @@
+{% extends "homepage.html" %}
+
+{% block productList %}
+
+    <div class= "container">
+        <div class="row border">
+            <div class="col-sm-1 border">
+                ID
+            </div>
+            <div class="col-sm-4 border">
+                Name
+            </div>
+            <div class="col-sm-7 border">
+                Description
+            </div>
+        </div>
+    </div>
+
+    {% for product in products %}
+
+        <div class= "container">
+            <div class="row border">
+                <div class="col-sm-1 border">
+                    {{product.ID}}
+                </div>
+                <div class="col-sm-4 border">
+                    {{product.Name}}
+                </div>
+                <div class="col-sm-7 border">
+                    {{product.Description}}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock productList %}
