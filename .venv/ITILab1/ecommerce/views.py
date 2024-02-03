@@ -42,4 +42,8 @@ def aboutUs(request):
 def productDetails(request, productID):
     context = {}
     context['products']=products
-    return render(request, 'aboutUs.html', context)
+    
+    track=filter(lambda t:t['ID']==productID,products)
+    track=list(track)
+    return HttpResponse(track)
+    return render(request, 'productDetails.html', track)
