@@ -10,18 +10,21 @@ products=[
         'Name': 'Galaxy Phone',
         'Description': 'A phone made by Samsung.',
         'Category':'Phone',
+        'Source':'download.png',
       },
       {
         'ID': 2,
         'Name': 'SMP500 Laptop',
         'Description': 'The laptop for investors on a budget.',
-        'Category':'Laptop'
+        'Category':'Laptop',
+        'Source':'download.png',
       },
       {
         'ID': 3,
         'Name': 'Galaxy Tab 7',
         'Description': 'Samsungs newest iteration of the galaxy tab!',
         'Category':'Tablet',
+        'Source':'download.png',
       }
 ]
 

@@ -1,5 +1,7 @@
 {% extends "homepage.html" %}
 
+{% load static %}
+
 {% block productList %}
 
     <div class= "container">
@@ -10,11 +12,14 @@
             <div class="col-sm-4 border">
                 Name
             </div>
-            <div class="col-sm-2 border">
+            <div class="col-sm-1 border">
                 Category
             </div>
-            <div class="col-sm-5 border">
+            <div class="col-sm-4 border">
                 Description
+            </div>
+            <div class="col-sm-2 border">
+                Image
             </div>
         </div>
     </div>
@@ -27,13 +32,16 @@
                     {{product.ID}}
                 </div>
                 <div class="col-sm-4 border">
-                    {{product.Name}}
+                    <a href="/products/{{product.ID}}">{{product.Name}}</a>
                 </div>
-                <div class="col-sm-2 border">
+                <div class="col-sm-1 border">
                     {{product.Category}}
                 </div>
-                <div class="col-sm-5 border">
+                <div class="col-sm-4 border">
                     {{product.Description}}
+                </div>
+                <div class="col-sm-2 border">
+                    <img width="100px" src="{%static 'images/download.png' %}">
                 </div>
             </div>
         </div>
