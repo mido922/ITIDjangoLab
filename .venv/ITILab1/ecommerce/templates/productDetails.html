@@ -1,29 +1,44 @@
 {% extends "homepage.html" %}
 
+{% load static %}
+
 {% block productList %}
 
-
-{% for product in products %}
-
-<div class= "container">
-    <div class="row border">
-        <div class="col-sm-1 border">
-            {{product.ID}}
-        </div>
-        <div class="col-sm-4 border">
-            <a href="products/{{product.ID}}">{{product.Name}}</a>
-        </div>
-        <div class="col-sm-4 border">
-            {{product.Description}}
-        </div>
-        <div class="col-sm-3 border">
-            <img width="100px" src="{%static 'images/download.png' %}">
+    <div class= "container">
+        <div class="row border">
+            <div class="col-sm-1 border">
+                ID
+            </div>
+            <div class="col-sm-4 border">
+                Name
+            </div>
+            <div class="col-sm-5 border">
+                Description
+            </div>
+            <div class="col-sm-2 border">
+                Image
+            </div>
         </div>
     </div>
-</div>
+
+        <div class= "container">
+            <div class="row border">
+                <div class="col-sm-1 border">
+                    {{products.ID}}
+                </div>
+                <div class="col-sm-4 border">
+                    <a href="/products/{{products.ID}}">{{products.Name}}</a>
+                </div>
+                <div class="col-sm-5 border">
+                    {{products.Description}}
+                </div>
+                <div class="col-sm-2 border">
+                    {% with 'images/'|add:products.Image as image_static %}
+                    <img width="100px" src="{% static image_static %}"/>
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
 
 
-{% endfor %}
-
-
-{% endblock productList %}
+        {% endblock productList %}

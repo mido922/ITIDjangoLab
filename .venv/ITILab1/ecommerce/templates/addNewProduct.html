@@ -1,0 +1,29 @@
+{% extends "homepage.html" %}
+
+{% block productList %}
+
+<form method="post">
+    {% csrf_token %}
+<label>ID:</label>
+<input type="text" name="productID">
+</br>
+<label>Name:</label>
+<input type="text" name="productName">
+</br>
+<label>Description:</label>
+<input type="text" name="productDescription">
+</br>
+<label>Category:</label>
+<input type="text" name="productCategory">
+</br>
+<label>Image Filename:</label>
+<input type="text" name="productImage">
+</br>
+
+<input type="submit" value="Add a Product">
+</form>
+
+
+
+
+{% endblock productList %}

@@ -12,11 +12,14 @@
             <div class="col-sm-4 border">
                 Name
             </div>
-            <div class="col-sm-5 border">
+            <div class="col-sm-3 border">
                 Description
             </div>
             <div class="col-sm-2 border">
                 Image
+            </div>
+            <div class="col-sm-2 border">
+                Options
             </div>
         </div>
     </div>
@@ -31,11 +34,17 @@
                 <div class="col-sm-4 border">
                     <a href="products/{{product.ID}}">{{product.Name}}</a>
                 </div>
-                <div class="col-sm-5 border">
+                <div class="col-sm-3 border">
                     {{product.Description}}
                 </div>
                 <div class="col-sm-2 border">
-                    <img width="100px" src="{%static 'images/download.png' %}">
+                    {% with 'images/'|add:product.Image as image_static %}
+                    <img width="100px" src="{% static image_static %}"/>
+                    {% endwith %}
+                </div>
+                <div class="col-sm-2 border">
+                    <a href="products/{{product.ID}}">Details</a>
+                    <a href="deleteProduct/{{product.ID}}">Delete</a>
                 </div>
             </div>
         </div>
