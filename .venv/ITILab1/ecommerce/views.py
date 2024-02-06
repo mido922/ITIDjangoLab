@@ -62,3 +62,17 @@ def productDetails(request, productID):
 def deleteProduct(request,productID):
   Product.objects.filter(ID=productID).delete()
   return HttpResponseRedirect('/')
+
+def updateProduct(request,productID):
+  newProductDetails=Product.objects.get(ID=productID)
+  context={'products':newProductDetails}
+  if(request.method=="POST"):
+      Product.objects.filter(id=productID).update(ID=request.POST['productID'],
+                              Name=request.POST['productName'],
+                              Description=request.POST['productDescription'],
+                              Category=request.POST['productCategory'],
+                              Image=request.POST['productImage'],)
+      return HttpResponseRedirect('/')
+
+
+  return render(request, 'updateProduct.html',)
