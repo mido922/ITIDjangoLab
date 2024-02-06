@@ -2,32 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import *
+from .forms import *
 
 # Create your views here.
-
-products=[
-      {
-        'ID': 1,
-        'Name': 'Galaxy Phone',
-        'Description': 'A phone made by Samsung.',
-        'Category':'Phone',
-        'Source':'download.png',
-      },
-      {
-        'ID': 2,
-        'Name': 'SMP500 Laptop',
-        'Description': 'The laptop for investors on a budget.',
-        'Category':'Laptop',
-        'Source':'download.png',
-      },
-      {
-        'ID': 3,
-        'Name': 'Galaxy Tab 7',
-        'Description': 'Samsungs newest iteration of the galaxy tab!',
-        'Category':'Tablet',
-        'Source':'download.png',
-      }
-]
 
 def homePage(request):
     context = {}
@@ -54,6 +31,22 @@ def addNewProduct(request):
     
     return render(request, 'addNewProduct.html')
 
+def addNewProductForm(request):
+    form=ProductForm()
+    context={'form':form}
+    if(request.method=="POST"):
+       form=ProductForm(request, request.POST, request.FILES)
+       if(form.is_valid()):
+        Product.objects.create(ID=request.POST.get['productID'],
+                               Name=request.POST.get['productName'],
+                               Description=request.POST.get['productDescription'],
+                               Category=request.POST.get['productCategory'],
+                               Image=request.POST.get['productImage'],)
+        return HttpResponseRedirect('/')
+       else:
+        return HttpResponseRedirect('/')
+    return render(request, 'addNewProductForm.html', context)
+
 def productDetails(request, productID):
   selectedProduct=Product.objects.get(ID=productID)
   context={'products':selectedProduct}
@@ -71,7 +64,7 @@ def updateProduct(request,productID):
                               Name=request.POST['productName'],
                               Description=request.POST['productDescription'],
                               Category=request.POST['productCategory'],
-                              Image=request.POST['productImage'],)
+                              Image=request.FILES['productImage'],)
       return HttpResponseRedirect('/')
 
 

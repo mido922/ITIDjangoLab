@@ -38,8 +38,8 @@
                     {{product.Description}}
                 </div>
                 <div class="col-sm-2 border">
-                    {% with 'images/'|add:product.Image as image_static %}
-                    <img width="100px" src="{% static image_static %}"/>
+                    {% with 'media/'|add:product.Image as image_static %}
+                    <img width="100px" src="media/{{product.Image}}"/>
                     {% endwith %}
                 </div>
                 <div class="col-sm-2 border">

@@ -1,0 +1,11 @@
+{% extends "homepage.html" %}
+
+{% block productList %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Add a Product">
+</form>
+
+{% endblock productList %}
