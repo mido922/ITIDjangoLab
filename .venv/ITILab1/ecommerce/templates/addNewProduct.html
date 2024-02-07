@@ -2,23 +2,20 @@
 
 {% block productList %}
 
-<form method="post">
+<form method="POST">
     {% csrf_token %}
-<label>ID:</label>
-<input type="text" name="productID">
-</br>
 <label>Name:</label>
 <input type="text" name="productName">
-</br>
+<br />
 <label>Description:</label>
 <input type="text" name="productDescription">
-</br>
+<br />
 <label>Category:</label>
 <input type="text" name="productCategory">
-</br>
+<br />
 <label>Image Filename:</label>
 <input type="file" name="productImage">
-</br>
+<br />
 
 <input type="submit" value="Add a Product">
 </form>

@@ -6,10 +6,7 @@
 
     <div class= "container">
         <div class="row border">
-            <div class="col-sm-1 border">
-                ID
-            </div>
-            <div class="col-sm-4 border">
+            <div class="col-sm-5 border">
                 Name
             </div>
             <div class="col-sm-3 border">
@@ -28,11 +25,8 @@
 
         <div class= "container">
             <div class="row border">
-                <div class="col-sm-1 border">
-                    {{product.ID}}
-                </div>
-                <div class="col-sm-4 border">
-                    <a href="products/{{product.ID}}">{{product.Name}}</a>
+                <div class="col-sm-5 border">
+                    <a href="products/{{product.id}}">{{product.Name}}</a>
                 </div>
                 <div class="col-sm-3 border">
                     {{product.Description}}
@@ -43,9 +37,9 @@
                     {% endwith %}
                 </div>
                 <div class="col-sm-2 border">
-                    <a href="products/{{product.ID}}">Details</a>
-                    <a href="updateProduct/{{product.ID}}">Update</a>
-                    <a href="deleteProduct/{{product.ID}}">Delete</a>
+                    <a href="products/{{product.id}}">Details</a>
+                    <a href="updateProduct/{{product.id}}">Update</a>
+                    <a href="deleteProduct/{{product.id}}">Delete</a>
                 </div>
             </div>
         </div>
